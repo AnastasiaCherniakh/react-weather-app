@@ -12,14 +12,16 @@
 
 .Weather .search-city {
     display: flex;
-    justify-content: center;
+    gap: 8px;
     align-items: center;
-    gap: 6px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
-.Weather input{
+.Weather input {
     font-family: "Roboto", sans-serif;
-    width: 60%;
+    flex: 1;
     border-radius: 12px;
     padding: 10px 14px;
     font-weight: 500;
@@ -44,12 +46,13 @@
 
 .Weather button {
     font-family: "Roboto", sans-serif;
-    padding: 10px 12px;
-    border-radius: 8px;
+    white-space: nowrap;
+    padding: 10px 14px;
+    border-radius: 12px;
     border: none;
-    width: 20%;
     cursor: pointer;
     font-weight: 500;
+    font-size: 0.8rem;
     color: white;
     border: 1px solid hsla(0, 0%, 100%, 0.3);
     background-color: hsla(0, 0%, 100%, 0.15);
@@ -112,7 +115,7 @@
     }
 
     .Weather button {
-        padding: 13px 17px;
+        padding: 14px 18px;
         font-size: 0.9rem;
     }
 
