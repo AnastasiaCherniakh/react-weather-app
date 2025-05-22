@@ -1,1 +1,15 @@
+*, *::before, ::after {
+    box-sizing: border-box;
+}
 
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #243b55, #304876, #3b71ce);
+    font-family: "Roboto", sans-serif;
+    color: hsla(0, 0%, 100%, 0.9);
+}
+
+h1, h2, h3 {
+    margin: 0;
+}

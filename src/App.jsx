@@ -1,12 +1,15 @@
 import './App.css'
+import Weather from './Weather'
 
-function App() {
+export default function App() {
 
   return (
-    <>
-      <h1 style={{textAlign: "center"}}>Weather App</h1>
-    </>
+    <div className='App'>
+      <Weather />
+      <footer>
+        This project is coded by Anastasiia Cherniakh and is {" "}
+        <a href="https://github.com/AnastasiaCherniakh/react-weather-app" target='_blank'>open-sourced on Github</a>
+      </footer>
+    </div>
   )
 }
-
-export default App

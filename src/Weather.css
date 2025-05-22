@@ -1,0 +1,144 @@
+.Weather {
+    width: 100%;
+    margin: 0px auto;
+    padding: 12px;
+    background: hsla(0, 0%, 100%, 0.12);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(16px) saturate(160%); 
+    -webkit-backdrop-filter: blur(16px) saturate(160%); 
+    border: 1px solid hsla(0, 0%, 100%, 0.1);
+    border-radius: 16px;
+}
+
+.Weather .search-city {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.Weather input{
+    font-family: "Roboto", sans-serif;
+    width: 60%;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-weight: 500;
+    font-size: 0.8rem;
+    background-color: hsla(0, 0%, 100%, 0.15); 
+    border: 1px solid hsla(0, 0%, 100%, 0.3); 
+    color: hsl(0, 0%, 100%);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 6px hsla(0, 0%, 0%, 0.15);
+    outline: none;
+}
+
+.Weather input::placeholder {
+    color: hsla(0, 0%, 100%, 0.8);
+}
+
+.Weather input:focus {
+    background-color: hsla(0, 0%, 100%, 0.25);
+    outline: none;
+    border: 1px solid hsla(0, 0%, 100%, 0.6);
+}
+
+.Weather button {
+    font-family: "Roboto", sans-serif;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: none;
+    width: 20%;
+    cursor: pointer;
+    font-weight: 500;
+    color: white;
+    border: 1px solid hsla(0, 0%, 100%, 0.3);
+    background-color: hsla(0, 0%, 100%, 0.15);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 6px hsla(0, 0%, 0%, 0.15);
+    transition: background-color 0.2s ease;
+}
+
+.Weather button:hover {
+    background-color: hsla(0, 0%, 100%, 0.25);
+}
+
+.Weather .current-weather-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.Weather .city-name {
+    font-size: 1.8rem;
+}
+
+.Weather .current-date {
+    font-size: 1rem;
+}
+
+.Weather .current-temperature {
+    font-size: 2.8rem;
+    margin-top: 16px;
+}
+
+.Weather .temperature-unit {
+    font-size: 1.1rem;
+    position: relative;
+    top: -20px;
+    margin-left: 5px;
+}
+
+
+.Weather .current-weather-icon > img {
+    width: 60px;
+    height: 60px;
+}
+
+.Weather .icon-description{
+    margin-top: 3px;
+    font-size: 0.9rem;
+}
+
+/* Medium devices: Tablets*/
+@media (min-width: 46.875em) { 
+    .Weather {
+        padding: 20px;
+    }
+
+    .Weather input {
+        padding: 14px 18px;
+        font-size: 0.9rem;
+    }
+
+    .Weather button {
+        padding: 13px 17px;
+        font-size: 0.9rem;
+    }
+
+    .Weather .city-name {
+        font-size: 2.3rem;
+    }
+
+    .Weather .current-date {
+        font-size: 1.1rem;
+    }
+
+    .Weather .current-temperature {
+        font-size: 3.3rem;
+        margin-top: 20px;
+    }
+
+    .Weather .feels-like {
+        font-size: 1.1rem;
+    }
+
+    .Weather .current-weather-icon > img{
+        width: 70px;
+        height: 70px;
+    }
+
+    .Weather .icon-description {
+        font-size: 1rem;
+    }
+}
