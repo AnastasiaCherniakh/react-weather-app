@@ -31,7 +31,7 @@ export async function handler(event){
         console.log("API Response body:", data);
     
         return {
-            statusCode: "200",
+            statusCode: 200,
             body: JSON.stringify(data)
         }
     }catch(error){

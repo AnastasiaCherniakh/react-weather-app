@@ -7,22 +7,29 @@ export default function Weather(props) {
     useEffect(() => {
         // Fetch weather data by calling the serverless function with the city name
         async function fetchWeather() {
-            const response = await fetch('/.netlify/functions/getWeather',{
-                method: "POST",
-                 headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({city : props.city})
-            });
-            const data = await response.json();
-            setWeatherData({
-                city: data.city,
-                date: "Thursday 13:00",
-                temperature: data.temperature.current,
-                feels_like: data.temperature.feels_like,
-                icon_url: data.condition.icon_url,
-                description: data.condition.description
-            })
+            try{
+                const response = await fetch('/.netlify/functions/getWeather',{
+                    method: "POST",
+                     headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({city : props.city})
+                });
+
+                const data = await response.json();
+                console.log("Parsed data:", data);
+                
+                setWeatherData({
+                    city: data.city,
+                    date: "Thursday 13:00",
+                    temperature: data.temperature.current,
+                    feels_like: data.temperature.feels_like,
+                    icon_url: data.condition.icon_url,
+                    description: data.condition.description
+                })
+            }catch(error){
+                console.error("Error fetching weather:", error.message);
+            }
         }
 
         fetchWeather()
