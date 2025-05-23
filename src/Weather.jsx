@@ -9,6 +9,9 @@ export default function Weather(props) {
         async function fetchWeather() {
             const response = await fetch('/.netlify/functions/getWeather',{
                 method: "POST",
+                 headers: {
+                    'Content-Type': 'application/json'
+                },
                 body: JSON.stringify({city : props.city})
             });
             const data = await response.json();
