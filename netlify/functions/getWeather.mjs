@@ -26,16 +26,19 @@ export async function handler(event){
         const { city } = JSON.parse(event.body);
 
         const response = await fetch(`https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`);
+        console.log("API Response status:", response.status);
         const data = await response.json();
+        console.log("API Response body:", data);
     
         return {
             statusCode: "200",
             body: JSON.stringify(data)
         }
     }catch(error){
+        console.error("Fetch error:", error);
         return {
             statusCode: 500,
-            body: JSON.stringify({ error: error.message })
+            body: JSON.stringify({ error: "Something went wrong", details: error.message })
         };
     }
 }
