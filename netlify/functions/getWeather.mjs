@@ -6,7 +6,6 @@ export async function handler(event){
         const apiKey = process.env.WEATHER_API_KEY;
 
         if (!apiKey) {
-            console.error("API key is missing!");
             return {
                 statusCode: 500,
                 body: JSON.stringify({ error: "Missing WEATHER_API_KEY" })
@@ -20,15 +19,10 @@ export async function handler(event){
             };
         }
 
-        console.log("EVENT BODY:", event.body);
-        console.log("API KEY PRESENT:", !!apiKey);
-
         const { city } = JSON.parse(event.body);
 
         const response = await fetch(`https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`);
-        console.log("API Response status:", response.status);
         const data = await response.json();
-        console.log("API Response body:", data);
     
         return {
             statusCode: 200,

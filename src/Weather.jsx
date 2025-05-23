@@ -17,7 +17,6 @@ export default function Weather(props) {
                 });
 
                 const data = await response.json();
-                console.log("Parsed data:", data);
                 
                 setWeatherData({
                     city: data.city,
@@ -31,7 +30,7 @@ export default function Weather(props) {
                 console.error("Error fetching weather:", error.message);
             }
         }
-
+        
         fetchWeather()
     }, [props.city])
     return (
