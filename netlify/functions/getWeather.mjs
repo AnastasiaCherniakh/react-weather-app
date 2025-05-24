@@ -28,6 +28,7 @@ export async function handler(event){
             statusCode: 200,
             body: JSON.stringify(data)
         }
+        
     }catch(error){
         console.error("Fetch error:", error);
         return {

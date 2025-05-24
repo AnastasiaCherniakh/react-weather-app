@@ -1,4 +1,5 @@
 import './Weather.css';
+import FormattedDate from './FormattedDate';
 import { useState, useEffect } from 'react';
 
 export default function Weather(props) {
@@ -20,7 +21,7 @@ export default function Weather(props) {
                 
                 setWeatherData({
                     city: data.city,
-                    date: "Thursday 13:00",
+                    date: new Date(data.time * 1000),
                     temperature: data.temperature.current,
                     feels_like: data.temperature.feels_like,
                     icon_url: data.condition.icon_url,
@@ -43,7 +44,9 @@ export default function Weather(props) {
                 <section className='current-weather-info'>
                     <div className="current-weather-details">
                         <h1 className='city-name'>{weatherData.city}</h1>
-                        <span className='current-date'>{weatherData.date}</span>
+                        <span className='current-date'>
+                            <FormattedDate date={weatherData.date}/>
+                        </span>
                         <h2 className='current-temperature'>{Math.round(weatherData.temperature)}°<span className='temperature-unit'>C | F</span></h2>
                         <p className='feels-like'>Feels like {Math.round(weatherData.feels_like)}°</p>
                     </div>
