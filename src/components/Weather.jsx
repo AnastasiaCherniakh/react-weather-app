@@ -1,10 +1,12 @@
 import './Weather.css';
-import FormattedDate from './FormattedDate';
+import CurrentWeather from './CurrentWeather';
 import { useState, useEffect } from 'react';
 
 export default function Weather(props) {
 
     const [weatherData, setWeatherData] = useState(null);
+    const [city, setCity] = useState(props.defaultCity); // Triggers the fetch inside useEffect
+    const [cityInput, setCityInput] = useState(''); // Tracks what the user types in the input
     useEffect(() => {
         // Fetch weather data by calling the serverless function with the city name
         async function fetchWeather() {
@@ -14,7 +16,7 @@ export default function Weather(props) {
                      headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({city : props.city})
+                    body: JSON.stringify({ city })
                 });
 
                 const data = await response.json();
@@ -30,33 +32,27 @@ export default function Weather(props) {
             }catch(error){
                 console.error("Error fetching weather:", error.message);
             }
-        }
-        
+        }       
         fetchWeather()
-    }, [props.city])
+    }, [city]);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        setCity(cityInput);
+    }
+
+    const handleCityChange = (event) => setCityInput(event.currentTarget.value);
+    
     return (
         <div className="Weather">
-            <form className='search-city'>
-                <input type="text" placeholder='Search for a city' autoFocus='on' />
+            <form className='search-city' onSubmit={handleSubmit}>
+                <input type="text" onChange={handleCityChange} 
+                value={cityInput}
+                placeholder='Search for a city' 
+                autoFocus='on' />
                 <button>Search</button>
             </form>
-            {weatherData && (
-                <section className='current-weather-info'>
-                    <div className="current-weather-details">
-                        <h1 className='city-name'>{weatherData.city}</h1>
-                        <span className='current-date'>
-                            <FormattedDate date={weatherData.date}/>
-                        </span>
-                        <h2 className='current-temperature'>{Math.round(weatherData.temperature)}°<span className='temperature-unit'>C | F</span></h2>
-                        <p className='feels-like'>Feels like {Math.round(weatherData.feels_like)}°</p>
-                    </div>
-                    <div className="current-weather-icon">
-                        <img src={weatherData.icon_url}
-                        alt={weatherData.description} />
-                        <p className='icon-description'>{weatherData.description}</p>
-                    </div>
-                </section>  
-            )}
+            {weatherData && <CurrentWeather weatherData={weatherData} />}
         </div> 
     )
 }
