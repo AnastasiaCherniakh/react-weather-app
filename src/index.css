@@ -5,9 +5,28 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #243b55, #304876, #3b71ce);
     font-family: "Roboto", sans-serif;
     color: hsla(0, 0%, 100%, 0.9);
+}
+
+body.weather-clear {
+    background: linear-gradient(to right, hsl(212, 40%, 24%), hsl(219, 42%, 33%), hsl(218, 60%, 52%));
+}
+
+body.weather-clouds {
+    background: linear-gradient(to right, hsl(210, 17%, 35%), hsl(191, 8%, 50%), hsl(210, 18%, 72%));
+}
+
+body.weather-rain {
+    background: linear-gradient(to right, hsl(200, 33%, 34%), hsl(204, 31%, 13%));
+}
+
+body.weather-thunder {
+    background: linear-gradient(to right, hsl(200, 4%, 14%), hsl(210, 3%, 26%));
+}
+
+body.weather-mist {
+    background: linear-gradient(to right, hsl(224, 15%, 53%), hsl(219, 27%, 88%));
 }
 
 h1, h2, h3 {

@@ -103,13 +103,17 @@
 
 .Weather .temperature-unit .unit-button.active {
   font-weight: bold;
-  text-decoration: underline;
+  text-decoration: none;
   cursor: default;
 }
 
 .Weather .temperature-unit .unit-button:disabled {
   pointer-events: none;
   color: hsla(0, 0%, 100%, 0.7);
+}
+
+.Weather .temperature-unit .unit-button:hover {
+    text-decoration: underline;
 }
 
 .Weather .current-weather-icon{
