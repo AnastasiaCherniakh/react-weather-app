@@ -27,6 +27,7 @@ export default function Weather(props) {
                     temperature: data.temperature.current,
                     feels_like: data.temperature.feels_like,
                     icon_url: data.condition.icon_url,
+                    icon: data.condition.icon,
                     description: data.condition.description
                 })
             }catch(error){
