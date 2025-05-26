@@ -1,0 +1,53 @@
+.forecast {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 20px;
+    padding-top: 25px;
+}
+
+.forecast .day-forecast {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.forecast .day-forecast > h3 {
+    font-size: 1.06rem;
+}
+
+.forecast .day-forecast > img {
+    width: 55px;
+}
+
+.forecast .max-min-temperature .max-temp {
+    margin-right: 4px;
+    color: white;
+}
+
+.forecast .max-min-temperature .min-temp {
+    color: hsla(0, 0%, 100%, 0.7)
+}
+
+ /* Styles for devices between 414px and 650px */
+@media (min-width: 25.875em) and (max-width: 40.825em) {
+    .forecast .day-forecast > h3 {
+        font-size: 1.125rem;
+    }
+
+    .forecast .day-forecast > img {
+        width: 65px;
+    }
+}
+
+/* Medium devices: Tablets*/
+@media (min-width: 40.625em) { 
+    .forecast .day-forecast > h3 {
+        font-size: 1.1875rem;
+    }
+
+    .forecast .day-forecast > img {
+        width: 70px;
+    }
+}

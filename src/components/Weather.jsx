@@ -1,5 +1,6 @@
 import './Weather.css';
 import CurrentWeather from './CurrentWeather';
+import WeatherForecast from './WeatherForecast';
 import { useState, useEffect } from 'react';
 
 export default function Weather(props) {
@@ -45,7 +46,7 @@ export default function Weather(props) {
     const handleCityChange = (event) => setCityInput(event.currentTarget.value);
     
     return (
-        <div className="Weather">
+        <main className="Weather">
             <form className='search-city' onSubmit={handleSubmit}>
                 <input type="text" onChange={handleCityChange} 
                 value={cityInput}
@@ -54,6 +55,7 @@ export default function Weather(props) {
                 <button>Search</button>
             </form>
             {weatherData && <CurrentWeather weatherData={weatherData} />}
-        </div> 
+            <WeatherForecast city={city}/>
+        </main> 
     )
 }
