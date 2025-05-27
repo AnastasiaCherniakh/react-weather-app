@@ -1,7 +1,7 @@
 import './Weather.css';
 import CurrentWeather from './CurrentWeather';
 import WeatherForecast from './WeatherForecast';
-import { TailSpin } from 'react-loader-spinner';
+import { ClipLoader } from 'react-spinners';
 import { useState, useEffect} from 'react';
 
 export default function Weather(props) {
@@ -65,13 +65,10 @@ export default function Weather(props) {
             </form>
             {isLoading ? (
                 <div className="spinner">
-                    <TailSpin
-                        height="60"
-                        width="60"
+                    <ClipLoader
                         color="#5C9EDC"
-                        ariaLabel="tail-spin-loading"
-                        radius="1"
-                        visible={true}
+                        size={60}
+                        ariaLabel="Loading Spinner"
                     />
                 </div>
             ) : (
