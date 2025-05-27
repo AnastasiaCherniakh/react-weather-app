@@ -1,7 +1,10 @@
-import './WeatherForecast.css'
-import { useEffect } from 'react';
+import './WeatherForecast.css';
+import ForecastDay from './ForecastDay';
+import { useEffect, useState } from 'react';
 
 export default function WeatherForecast({ city }) {
+
+    const [forecast, setForecast] = useState([]);
 
     useEffect(()=> {
         // Fetch weather forecast data by calling the serverless function with the city name
@@ -16,7 +19,8 @@ export default function WeatherForecast({ city }) {
                 });
 
                 const data = await response.json();
-                console.log(data);
+                setForecast(data.daily);
+                
             }catch(error){
                 console.error("Error fetching weather forecast:", error.message);
             }
@@ -25,14 +29,9 @@ export default function WeatherForecast({ city }) {
     }, [city]);
     return (
         <section className="forecast">
-            <div className="day-forecast">
-                <h3>Mon</h3>
-                <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" alt='clear sky' />
-                <div className="max-min-temperature">
-                    <span className="max-temp">21°</span>
-                    <span className="min-temp">9°</span>
-                </div>
-            </div>
+            {forecast && forecast.slice(0, 5).map((day) => (
+                     <ForecastDay key={day.time} day={day} />
+                ))}
         </section>
     )
 }
