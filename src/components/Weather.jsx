@@ -68,7 +68,7 @@ export default function Weather(props) {
                     <ClipLoader
                         color="#5C9EDC"
                         size={60}
-                        ariaLabel="Loading Spinner"
+                        aria-label="Loading Spinner"
                     />
                 </div>
             ) : (
