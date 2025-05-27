@@ -1,7 +1,5 @@
-import { useState } from 'react';
-export default function WeatherTemperature({ celsius }) {
+export default function WeatherTemperature({ celsius, unit, setUnit }) {
 
-    const [unit, setUnit] = useState("celsius");
     let fahrenheit = (celsius * 9/5) + 32;
 
     const displayFahrenheit = () => setUnit("fahrenheit");

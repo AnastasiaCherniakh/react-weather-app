@@ -1,9 +1,7 @@
-export default function ForecastDay({ day }) {
+export default function ForecastDay({ day, unit }) {
 
     const displayDay = () => {
         let date = new Date(day.time * 1000);
-        let weekday = date.getDay();
-
         let days = [
             "Sun",
             "Mon",
@@ -14,10 +12,12 @@ export default function ForecastDay({ day }) {
             "Sat"
         ];
 
-        return days[weekday];
+        return days[date.getDay()];
     }
 
-    const formatTemperature = (temp) => `${Math.round(temp)}°`;
+    const formatTemperature = (temp) => { 
+        let convertedTemp = unit === 'celsius' ? temp : (temp * 9 / 5 + 32);
+        return `${Math.round(convertedTemp)}°`};
     
     return (
         <div className="day-forecast">

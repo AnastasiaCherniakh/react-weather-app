@@ -1,7 +1,7 @@
 import FormattedDate from './FormattedDate';
 import WeatherTemperature from './WeatherTemperature';
 import { useEffect } from 'react';
-export default function CurrentWeather( {weatherData} ) {
+export default function CurrentWeather( {weatherData, unit, setUnit} ) {
 
     useEffect(() => {
 
@@ -52,8 +52,12 @@ export default function CurrentWeather( {weatherData} ) {
                 <span className='current-date'>
                     <FormattedDate date={weatherData.date}/>
                 </span>
-                <WeatherTemperature celsius={weatherData.temperature} />
-                <p className='feels-like'>Feels like {Math.round(weatherData.feels_like)}°</p>
+                <WeatherTemperature celsius={weatherData.temperature} unit={unit} setUnit={setUnit}/>
+                <p className='feels-like'>
+                    Feels like {Math.round( unit=== 'celsius' 
+                        ? weatherData.feels_like
+                        : (weatherData.feels_like * 9 / 5 + 32))}°
+                </p>
             </div>
             <div className="current-weather-icon">
                 <img src={weatherData.icon_url}

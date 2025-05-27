@@ -2,7 +2,7 @@ import './WeatherForecast.css';
 import ForecastDay from './ForecastDay';
 import { useEffect, useState } from 'react';
 
-export default function WeatherForecast({ city }) {
+export default function WeatherForecast({ city, unit }) {
 
     const [forecast, setForecast] = useState([]);
 
@@ -30,7 +30,7 @@ export default function WeatherForecast({ city }) {
     return (
         <section className="forecast">
             {forecast && forecast.slice(0, 5).map((day) => (
-                     <ForecastDay key={day.time} day={day} />
+                     <ForecastDay key={day.time} day={day} unit={unit}/>
                 ))}
         </section>
     )

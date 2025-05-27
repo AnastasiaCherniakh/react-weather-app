@@ -8,6 +8,7 @@ export default function Weather(props) {
     const [weatherData, setWeatherData] = useState(null);
     const [city, setCity] = useState(props.defaultCity); // Triggers the fetch inside useEffect
     const [cityInput, setCityInput] = useState(''); // Tracks what the user types in the input
+    const [unit, setUnit] = useState("celsius"); // Tracks the selected temperature unit (Celsius or Fahrenheit)
     useEffect(() => {
         // Fetch weather data by calling the serverless function with the city name
         async function fetchWeather() {
@@ -54,8 +55,8 @@ export default function Weather(props) {
                 autoFocus='on' />
                 <button>Search</button>
             </form>
-            {weatherData && <CurrentWeather weatherData={weatherData} />}
-            <WeatherForecast city={city}/>
+            {weatherData && <CurrentWeather weatherData={weatherData} unit={unit} setUnit={setUnit} />}
+            <WeatherForecast city={city} unit={unit}/>
         </main> 
     )
 }
