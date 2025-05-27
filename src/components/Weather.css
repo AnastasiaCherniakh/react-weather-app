@@ -44,6 +44,13 @@
     border: 1px solid hsla(0, 0%, 100%, 0.6);
 }
 
+.Weather .spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
 .Weather button {
     font-family: "Roboto", sans-serif;
     white-space: nowrap;

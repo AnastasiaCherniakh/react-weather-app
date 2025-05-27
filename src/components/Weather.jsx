@@ -1,7 +1,8 @@
 import './Weather.css';
 import CurrentWeather from './CurrentWeather';
 import WeatherForecast from './WeatherForecast';
-import { useState, useEffect } from 'react';
+import { TailSpin } from 'react-loader-spinner';
+import { useState, useEffect} from 'react';
 
 export default function Weather(props) {
 
@@ -9,9 +10,11 @@ export default function Weather(props) {
     const [city, setCity] = useState(props.defaultCity); // Triggers the fetch inside useEffect
     const [cityInput, setCityInput] = useState(''); // Tracks what the user types in the input
     const [unit, setUnit] = useState("celsius"); // Tracks the selected temperature unit (Celsius or Fahrenheit)
+    const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         // Fetch weather data by calling the serverless function with the city name
         async function fetchWeather() {
+            setIsLoading(true);
             try{
                 const response = await fetch('/.netlify/functions/getWeather',{
                     method: "POST",
@@ -32,8 +35,10 @@ export default function Weather(props) {
                     icon: data.condition.icon,
                     description: data.condition.description
                 })
-            }catch(error){
+            } catch (error) {
                 console.error("Error fetching weather:", error.message);
+            } finally {
+                setIsLoading(false);
             }
         }       
         fetchWeather()
@@ -55,8 +60,23 @@ export default function Weather(props) {
                 autoFocus='on' />
                 <button>Search</button>
             </form>
-            {weatherData && <CurrentWeather weatherData={weatherData} unit={unit} setUnit={setUnit} />}
-            <WeatherForecast city={city} unit={unit}/>
+            {isLoading ? (
+                <div className="spinner">
+                    <TailSpin
+                        height="60"
+                        width="60"
+                        color="#5C9EDC"
+                        ariaLabel="tail-spin-loading"
+                        radius="1"
+                        visible={true}
+                    />
+                </div>
+            ) : (
+                <>
+                    {weatherData && <CurrentWeather weatherData={weatherData} unit={unit} setUnit={setUnit} />}
+                    <WeatherForecast city={city} unit={unit}/>
+                </>
+            )}
         </main> 
     )
 }
