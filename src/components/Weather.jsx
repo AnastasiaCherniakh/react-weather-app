@@ -46,8 +46,11 @@ export default function Weather(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setCity(cityInput);
-    }
+        const trimmedInput = cityInput.trim();
+        if(trimmedInput){
+            setCity(trimmedInput);
+        }
+    };
 
     const handleCityChange = (event) => setCityInput(event.currentTarget.value);
     
