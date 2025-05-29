@@ -33,7 +33,8 @@ export default function Weather(props) {
                     feels_like: data.temperature.feels_like,
                     icon_url: data.condition.icon_url,
                     icon: data.condition.icon,
-                    description: data.condition.description
+                    description: data.condition.description,
+                    humidity: data.temperature.humidity
                 })
             } catch (error) {
                 console.error("Error fetching weather:", error.message);

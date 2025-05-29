@@ -89,7 +89,7 @@
 
 .Weather .current-temperature {
     font-size: 2.8rem;
-    margin-top: 16px;
+    margin: 16px 0;
 }
 
 .Weather .temperature-unit {
@@ -136,9 +136,13 @@
     height: 70px;
 }
 
-.Weather .icon-description{
+.Weather .icon-description {
     margin-top: 3px;
     font-size: 0.9rem;
+}
+
+.Weather .weather-details {
+    margin: 8px;
 }
 
  /* Styles for devices between 414px and 650px */
@@ -187,7 +191,7 @@
         font-size: 1.2rem;
     }
 
-    .Weather .feels-like {
+    .Weather .weather-details {
         font-size: 1.1rem;
     }
 

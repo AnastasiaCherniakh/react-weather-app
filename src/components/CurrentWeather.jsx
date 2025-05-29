@@ -53,10 +53,13 @@ export default function CurrentWeather( {weatherData, unit, setUnit} ) {
                     <FormattedDate date={weatherData.date}/>
                 </span>
                 <WeatherTemperature celsius={weatherData.temperature} unit={unit} setUnit={setUnit}/>
-                <p className='feels-like'>
+                <p className='weather-details'>
                     Feels like {Math.round( unit=== 'celsius' 
                         ? weatherData.feels_like
                         : (weatherData.feels_like * 9 / 5 + 32))}°
+                </p>
+                <p className='weather-details'>
+                    Humidity: {weatherData.humidity}%
                 </p>
             </div>
             <div className="current-weather-icon">
