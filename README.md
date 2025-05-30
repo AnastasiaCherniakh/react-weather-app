@@ -1,8 +1,8 @@
 # ⛅ Weather App
 
-A responsive React weather app that lets users search for any city and view current conditions plus a 5-day forecast.
+A clean and responsive React weather app that allows users to search any city and view live weather data along with a 5-day forecast.
 
-Built with **React**, **Vite** and deployed on **Netlify**. It connects to the **SheCodes Weather API** via a secure serverless function.
+Built with **React**, **Vite** and deployed on **Netlify**. API requests are handled securely via Netlify serverless functions.
 
 ## 🔗 Live Demo
 
@@ -10,22 +10,31 @@ Built with **React**, **Vite** and deployed on **Netlify**. It connects to the *
 
 ## ⚡Features
 
-- **City Search** - Search for any city to view  live weather data
-- **Current Weather** - Shows temperature, weather description, "feels like" temperature and an icon
-- **5-Day Forecast** - Displays daily highs/lows with corresponding weather icons
+- **City Search** - Look up weather data for any location
+- **Current Weather** - Displays temperature, weather description, "feels like" temperature info and weather icon
+- **5-Day Forecast** - Daily highs/lows with matching icons
 - **Unit Toggle** - Switch between Celsius and Fahrenheit
-- **Dynamic Background** - Changes background based on current weather conditions
-- **Loading Spinner** - Visual loading indicator while fetching weather data
-- **Input Validation** - Prevents empty or whitespace-only submissions
-- **Secure API requests** - Handled through Netlify serverless functions to protect API key
+- **Dynamic Background** - Changes based on current weather conditions
+- **Loading Spinner** - Visual feedback while data is loading
+- **Input Validation** - Prevents blank or invalid entries
+- **Secure API requests** - Managed via Netlify Functions to keep the API key safe
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React, CSS, Vite
-- **API**:  SheCodes Weather API
-- **Deployment**: Netlify
-- **Serverless Backend**: Netlify Functions
-- **Loading UI**: `react-spinners`
+- **React** - Frontend UI and component logic
+- **Vite** - Fast development build tool for React projects
+- **Netlify Functions** - Serverless backend to securely handle API requests
+- **SheCodes Weather API** - Provides real-time weather and forecast data
+- **React Spinners** - Smooth loading animations during API calls
+- **CSS Media Queries** - Ensures responsive design across all devices
+
+## 📸 Screenshots
+
+![Weather Screen](/src/assets/weather-app-screen.png)
+
+## 💡 Why I Built This
+
+I created this project to strengthen my skills with React and API integration while also improving user interface design. I wanted to build something both practical and visually engaging that fetches real-time data, handles loading states and offers a smooth user experience on all devices.
 
 
 Thanks for checking it out! 😊
